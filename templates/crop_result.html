@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block body %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+    h1
+    {
+        margin-top: 5%;
+    }
+</style>
+<body>
+    <h1 style="text-align: center; font-size: 65px;">Crop Prediction Result</h1>
+
+    <!-- {% if prediction %}
+    <p style="text-align: center;">Predicted Crop: {{ prediction }}</p>
+    {% else %}
+    <p>No prediction available.</p>
+    {% endif %} -->
+</body>
+{% if prediction %}
+<div style="border: 2px solid maroon; padding: 10px; border-radius: 5px; background-color: lightyellow; font-size: 45px;">
+    <p style="margin-left: 0;">Predicted Crop: {{ prediction }}</p>
+</div> <br><br>
+{% else %}
+<p>No prediction available.</p>
+{% endif %}
+
+
+{% endblock %}
+</html>

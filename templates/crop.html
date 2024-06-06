@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% extends 'index.html' %}
+
+    {% block body %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+    <link rel="stylesheet" href="static/css/crop.css">
+    <link rel="JavaScript" href="{{ url_for('static', filename='js/crop_and_fertilizer.js') }}">
+    <link rel="JavaScript" href="static/js/crop_and_fertilizer.js">
+</head>
+<script>
+    function validateInput(inputId) {
+    var inputValue = parseFloat(document.getElementById(inputId).value);
+    var errorElement = document.getElementById(inputId + "Error");
+    
+    if (isNaN(inputValue)) {
+        errorElement.textContent = "Please enter a valid number.";
+    } else if (inputValue < 0 || inputValue > 250) {
+        errorElement.textContent = "Number must be between 0 and 250.";
+    } else if (inputValue.toString().indexOf('.') !== -1 && inputValue.toString().split('.')[1].length > 10) {
+        errorElement.textContent = "Maximum precision exceeded. Please enter up to 10 decimal places.";
+    } else {
+        errorElement.textContent = "";
+    }
+}
+function validateInput1(inputId) {
+    var inputValue = parseFloat(document.getElementById(inputId).value);
+    var errorElement = document.getElementById(inputId + "Error");
+    
+    if (isNaN(inputValue)) {
+        errorElement.textContent = "Please enter a valid number.";
+    } else if (inputValue < 0 || inputValue > 80) {
+        errorElement.textContent = "Number must be between 0 and 80.";
+    } else if (inputValue.toString().indexOf('.') !== -1 && inputValue.toString().split('.')[1].length > 10) {
+        errorElement.textContent = "Maximum precision exceeded. Please enter up to 10 decimal places.";
+    } else {
+        errorElement.textContent = "";
+    }
+}
+function validateInput2(inputId) {
+    var inputValue = parseFloat(document.getElementById(inputId).value);
+    var errorElement = document.getElementById(inputId + "Error");
+    
+    if (isNaN(inputValue)) {
+        errorElement.textContent = "Please enter a valid number.";
+    } else if (inputValue < 0 || inputValue > 14) {
+        errorElement.textContent = "Number must be between 0 and 14.";
+    } else if (inputValue.toString().indexOf('.') !== -1 && inputValue.toString().split('.')[1].length > 10) {
+        errorElement.textContent = "Maximum precision exceeded. Please enter up to 10 decimal places.";
+    } else {
+        errorElement.textContent = "";
+    }
+}
+function validateInput3(inputId) {
+    var inputValue = parseFloat(document.getElementById(inputId).value);
+    var errorElement = document.getElementById(inputId + "Error");
+    
+    if (isNaN(inputValue)) {
+        errorElement.textContent = "Please enter a valid number.";
+    } else if (inputValue < 0 || inputValue > 300) {
+        errorElement.textContent = "Number must be between 0 and 300.";
+    } else if (inputValue.toString().indexOf('.') !== -1 && inputValue.toString().split('.')[1].length > 10) {
+        errorElement.textContent = "Maximum precision exceeded. Please enter up to 10 decimal places.";
+    } else {
+        errorElement.textContent = "";
+    }
+}
+    </script>
+<body>
+    <h1>Crop Prediction</h1>
+
+    <form action="/predict" method="post">
+        <label for="N">Nitrogen (N) in mg/kg:</label><br>
+        <input type="number" step="0.000000001" id="N" name="input_data[]" min="0.0" required oninput="validateInput('N')">
+        <span id="NError" style="color: red;"></span><br>
+    
+        <label for="P">Phosphorus (P) in mg/kg:</label><br>
+        <input type="number" step="0.000000001" id="P" name="input_data[]" min="0" required oninput="validateInput('P')">
+        <span id="PError" style="color: red;"></span><br>
+    
+        <label for="K">Potassium (K) in mg/kg:</label><br>
+        <input type="number" step="0.000000001" id="K" name="input_data[]" min="0" required oninput="validateInput('K')">
+        <span id="KError" style="color: red;"></span><br>
+    
+        <label for="temperature">Temperature in C:</label><br>
+        <input type="number" step="0.000000001" id="temperature" name="input_data[]" min="0"required oninput="validateInput1('temperature')">
+        <span id="temperatureError" style="color: red;"></span><br>
+    
+        <label for="humidity">Humidity:</label><br>
+        <input type="number" step="0.000000001" id="humidity" name="input_data[]" min="0" required oninput="validateInput1('humidity')">
+        <span id="humidityError" style="color: red;"></span><br>
+    
+        <label for="ph">pH:</label><br>
+        <input type="number" step="0.000000001" id="ph" name="input_data[]" min="0" required oninput="validateInput2('ph')">
+        <span id="phError" style="color: red;"></span><br>
+    
+        <label for="rainfall">Rainfall:</label><br>
+        <input type="number" step="0.000000001" id="rainfall" name="input_data[]" min="0" required oninput="validateInput3('rainfall')">
+        <span id="rainfallError" style="color: red;"></span><br><br><br>
+    
+        <input type="submit" value="Predict">
+        
+    </form>
+<!-- {% if prediction %}
+        <p>Predicted Crop: {{ prediction }}</p>
+        {% endif %} -->
+
+</body>
+<br><br>
+
+{% endblock %}
+
+</html>
