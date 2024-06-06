@@ -15,3 +15,6 @@ Aimed to optimize nutrient utilization, improve crop yield and quality, and ensu
 ![Screenshot (19)](https://github.com/chandrashekarreddyv/Krushi-Salaha-Vyavastha/assets/147227569/4e193244-a3c8-4256-9ac3-b3c145e6c567)
 
 ![Screenshot (20)](https://github.com/chandrashekarreddyv/Krushi-Salaha-Vyavastha/assets/147227569/26650390-b6c4-46ab-95e8-983d12fb2fa5)
+
+
+![Screenshot (21)](https://github.com/chandrashekarreddyv/Krushi-Salaha-Vyavastha/assets/147227569/b813dda0-37b6-4a34-8470-9c5561865b9f)
